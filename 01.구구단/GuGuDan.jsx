@@ -36,13 +36,15 @@ class GuGuDan extends Component {
         this.setState({ value: e.target.value });
     };
 
+    onRefInput = (c) => {this.input = c; };
+    
     render() {
         console.log('렌더링');
         return (
             <React.Fragment>
                 <div>{this.state.first} 곱하기 {this.state.second}는? </div>
                 <form onSubmit={this.onSubmit}>
-                    <input ref={(C) => { this.input = c; }} type="number" value={this.state.value} onChange={this.onChange}/>
+                    <input ref={this.onRefInput} type="number" value={this.state.value} onChange={this.onChange}/>
                     <button>입력!</button>
                 </form>
                 <div>{this.state.result}</div>
